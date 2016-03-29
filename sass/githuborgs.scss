@@ -1,0 +1,44 @@
+@import "variables";
+@import "mixins";
+
+.orglist{
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  .itemEntry{
+    list-style: none;
+    padding: 15px;
+    margin: 10px;
+    height: 60px;
+    background-color: $greythemelight;
+    border: $greythemedark 1px solid;
+    border-radius: 15px;
+    @include boxshadow();
+    .itemTitle{
+      padding-top: 3px;
+      margin: 0;
+      font-size: 2.75em;
+      color: $greythemedark;
+      @include textshadow();
+    }
+    .itemIcon{
+      float: left;
+      margin-right: 35px;
+      margin-left: 10px;
+      height: 100%;
+    }
+  }
+}
+
+.submitButton{
+  margin: auto;
+  margin-top: 25px;
+  padding: 5px 20px;
+  display: block;
+  background-color: $greythemedarker;
+  font-size: 1.5em;
+  color: $greythemelight;
+  border: $greythemedark 1px solid;
+  border-radius: 10px;
+  @include boxshadow();
+}
