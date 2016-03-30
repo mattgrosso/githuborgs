@@ -4,7 +4,7 @@
 .orglist{
   width: 50%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 3%;
   .itemEntry{
     list-style: none;
     padding: 15px;
@@ -30,6 +30,35 @@
   }
 }
 
+.defaultmessage{
+  display: block;
+  width: 50%;
+  margin: auto;
+  margin-top: 3%;
+  padding: 15px;
+  background-color: $greythemelight;
+  border: $greythemedark 1px solid;
+  border-radius: 15px;
+  font-size: 2.5em;
+  text-align: center;
+  color: $greythemedark;
+  @include boxshadow();
+}
+
+.nameinput{
+  margin: auto;
+  margin-top: 35px;
+  padding: 5px 20px;
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  background-color: $greythemelight;
+  color: $greythemedark;
+  border: $greythemedark 1px solid;
+  border-radius: 3px;
+  @include boxshadow();
+}
+
 .submitButton{
   margin: auto;
   margin-top: 25px;
@@ -41,4 +70,9 @@
   border: $greythemedark 1px solid;
   border-radius: 10px;
   @include boxshadow();
+  display: none;
+}
+
+.hidden{
+  display: none;
 }

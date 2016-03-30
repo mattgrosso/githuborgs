@@ -1,33 +1,29 @@
-//What goes in here?
-//This is where I'll grab the JSON from Github's server and assemble it into an object (or array)
-//This will be triggered by a call from the UI
-
-
 (function(gitOrgs) {
   'use strict';
 
-  var userOrgs = "data.json";
-  // var userOrgs = "https://api.github.com/users/jisaacks/orgs";
-
-  gitOrgs.bigArraySmallArray = function bigArraySmallArray(element){
+  gitOrgs.bigArraySmallObject = function bigArraySmallObject(element){
     var userDataReturn = {};
     userDataReturn.orgName = element.login;
     userDataReturn.iconurl = element.avatar_url;
     gitOrgs.addToList(userDataReturn);
   };
 
-  $.ajax({
-    type: 'GET',
-    url: userOrgs,
-    datatype: 'JSON',
-    success: function showOrgs(data){
-      data.forEach(gitOrgs.bigArraySmallArray);
-    },
-    error: function handleErrors(xhr){
-    },
-    complete: function requestDone(){
-    }
-  });
+  gitOrgs.getUserData = function getUserData(username){
+    var userOrgsURL = "https://api.github.com/users/" + username + "/orgs";
+    $.ajax({
+      type: 'GET',
+      url: userOrgsURL,
+      datatype: 'JSON',
+      success: function showOrgs(data){
+        $('.itemEntry').remove();
+        data.forEach(gitOrgs.bigArraySmallObject);
+      },
+      error: function handleErrors(xhr){
+      },
+      complete: function requestDone(){
+      }
+    });
+  };
 
   window.gitOrgs = gitOrgs;
 
